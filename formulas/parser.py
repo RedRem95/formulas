@@ -38,7 +38,7 @@ class Parser:
         return self.formula_check.match(value) or Error._re.match(value)
 
     def ast(self, expression, context=None):
-        if isinstance(expression, str) and "#REF!" in expression:
+        if isinstance(expression, str) and "#REF!".lower() in expression.lower():
             expression = "=#REF!"
         try:
             match = self.is_formula(expression).groupdict()
